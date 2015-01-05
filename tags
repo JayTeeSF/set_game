@@ -1,0 +1,58 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+==	lib/set_game/deck.rb	/^    def ==(o)$/;"	f	class:SetGame.Deck
+Card	lib/set_game/card.rb	/^  class Card$/;"	c	class:SetGame
+Deck	lib/set_game/deck.rb	/^  class Deck$/;"	c	class:SetGame
+Set	lib/set_game/set.rb	/^  class Set$/;"	c	class:SetGame
+SetGame	lib/set_game.rb	/^module SetGame$/;"	m
+SetGame	lib/set_game/card.rb	/^module SetGame$/;"	m
+SetGame	lib/set_game/deck.rb	/^module SetGame$/;"	m
+SetGame	lib/set_game/set.rb	/^module SetGame$/;"	m
+SetGame	lib/set_game/version.rb	/^module SetGame$/;"	m
+add	lib/set_game/deck.rb	/^    def add(_cards=[])$/;"	f	class:SetGame.Deck
+card.rb	lib/set_game/card.rb	1;"	F
+card_spec.rb	spec/lib/set_game/card_spec.rb	1;"	F
+cards_for	lib/set_game/deck.rb	/^    def cards_for(card_list)$/;"	f	class:SetGame.Deck
+color?	lib/set_game/set.rb	/^    def color?$/;"	f	class:SetGame.Set
+deal	lib/set_game/deck.rb	/^    def deal(amount, table=Deck.new)$/;"	f	class:SetGame.Deck
+dealings	lib/set_game/deck.rb	/^    def dealings(amount)$/;"	f	class:SetGame.Deck
+deck.rb	lib/set_game/deck.rb	1;"	F
+deck_spec.rb	spec/lib/set_game/deck_spec.rb	1;"	F
+default_attributes	lib/set_game/card.rb	/^    def self.default_attributes$/;"	F	class:SetGame.Card
+from_attributes	lib/set_game/deck.rb	/^    def self.from_attributes(_card_attrs=[], _discard_attrs=[])$/;"	F	class:SetGame.Deck
+initialize	lib/set_game/card.rb	/^    def initialize(color, number, shading, shape)$/;"	f	class:SetGame.Card
+initialize	lib/set_game/deck.rb	/^    def initialize(cards=[], discards=[])$/;"	f	class:SetGame.Deck
+initialize	lib/set_game/set.rb	/^    def initialize(card1, card2, card3)$/;"	f	class:SetGame.Set
+number?	lib/set_game/set.rb	/^    def number?$/;"	f	class:SetGame.Set
+print_table	lib/set_game/deck.rb	/^    def print_table$/;"	f	class:SetGame.Deck
+remove	lib/set_game/deck.rb	/^    def remove(_cards=[])$/;"	f	class:SetGame.Deck
+sample	lib/set_game/card.rb	/^    def self.sample$/;"	F	class:SetGame.Card
+set.rb	lib/set_game/set.rb	1;"	F
+set_count	lib/set_game/deck.rb	/^    def set_count$/;"	f	class:SetGame.Deck
+set_game	bin/set_game	1;"	F
+set_game.rb	lib/set_game.rb	1;"	F
+sets	lib/set_game/deck.rb	/^    def sets$/;"	f	class:SetGame.Deck
+sets?	lib/set_game/deck.rb	/^    def sets?$/;"	f	class:SetGame.Deck
+sets_of_ids	lib/set_game/deck.rb	/^    def sets_of_ids$/;"	f	class:SetGame.Deck
+shading?	lib/set_game/set.rb	/^    def shading?$/;"	f	class:SetGame.Set
+shape?	lib/set_game/set.rb	/^    def shape?$/;"	f	class:SetGame.Set
+shuffle	lib/set_game/deck.rb	/^    def shuffle$/;"	f	class:SetGame.Deck
+shuffled	lib/set_game/deck.rb	/^    def self.shuffled$/;"	F	class:SetGame.Deck
+to_h	lib/set_game/card.rb	/^    def to_h$/;"	f	class:SetGame.Card
+to_h	lib/set_game/deck.rb	/^    def to_h$/;"	f	class:SetGame.Deck
+to_h	lib/set_game/set.rb	/^    def to_h$/;"	f	class:SetGame.Set
+to_json	lib/set_game/card.rb	/^    def to_json$/;"	f	class:SetGame.Card
+to_json	lib/set_game/deck.rb	/^    def to_json$/;"	f	class:SetGame.Deck
+to_json	lib/set_game/set.rb	/^    def to_json$/;"	f	class:SetGame.Set
+to_s	lib/set_game/card.rb	/^    def to_s$/;"	f	class:SetGame.Card
+to_s	lib/set_game/deck.rb	/^    def to_s$/;"	f	class:SetGame.Deck
+to_s	lib/set_game/set.rb	/^    def to_s$/;"	f	class:SetGame.Set
+unshuffled	lib/set_game/card.rb	/^    def self.unshuffled$/;"	F	class:SetGame.Card
+unshuffled	lib/set_game/deck.rb	/^    def self.unshuffled$/;"	F	class:SetGame.Deck
+valid	lib/set_game/set.rb	/^    def self.valid?(card1, card2, card3)$/;"	F	class:SetGame.Set
+valid?	lib/set_game/set.rb	/^    def valid?$/;"	f	class:SetGame.Set
+version.rb	lib/set_game/version.rb	1;"	F

@@ -1,0 +1,82 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'rubygems'
+  gem 'set_game'
+  require 'set_game'
+rescue LoadError
+  require_relative '../lib/set_game'
+end
+
+# FIXME: utilities to:
+# accept a board config and respond with the sets, number of sets, or existence (t/f) of sets
+# evaluate a move
+# render a board config - ascii, emoji, ???
+
+
+require 'optparse'
+
+options = {}
+opt_parser = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [OPTIONS]..."
+
+  opts.on( '-j [JSON_DECK]', '--json [JSON_DECK]', 'JSON deck') do |json_deck|
+    fail("unknown json file: #{json_deck}") unless File.exist?(json_deck)
+    require 'json'
+    options[:deck] = SetGame::Deck.from_attributes(
+      JSON.parse(File.read(json_deck))
+    )
+  end
+
+  opts.on_tail( '-h', '--help', 'This help screen' ) do
+    puts opts
+    exit
+  end
+end
+opt_parser.parse!
+
+original_deck = options[:deck] || SetGame::Deck.shuffled
+current_deck, current_table = original_deck.deal(12)
+
+puts "original_deck-cards: #{original_deck.to_h[:cards].count}; original_deck-discards: #{original_deck.to_h[:discards].count}"
+puts "current_deck-cards: #{current_deck.to_h[:cards].count}; current_deck-discards: #{current_deck.to_h[:discards].count}"
+puts "current_table-cards: #{current_table.to_h[:cards].count}; current_table-discards: #{current_table.to_h[:discards].count}"
+
+require 'ap'
+ap current_table.to_h[:cards]
+
+print "Identify a set (e.g. 0,1,2) or 'pass':"
+card_list_or_pass = gets.chomp
+puts
+
+cards = current_table.cards_for(card_list_or_pass.split(/,\s*/).map(&:to_i))
+if card_list_or_pass.downcase =~ /pass/ || cards.empty?
+  if current_table.sets?
+    puts "Unable to find one of the #{current_table.set_count} set(s)"
+  else
+    puts "Nice ...cuz there aren't any sets!"
+  end
+else
+  if SetGame::Set.valid?(*cards)
+    puts "Got one of the #{current_table.set_count} set(s)!"
+    current_table = current_table.remove(cards) # FIXME: deal to a player's hand!
+    #current_table, current_player_hand = current_table.deal_set(cards)
+
+    if current_table.card_count < 12 && current_deck.card_count >= 3
+      puts "adding cards to the table..."
+      current_deck, current_table = current_deck.deal(3, current_table)
+    end
+  else
+    puts "Not one of the #{current_table.set_count} set(s)!"
+    #FIXME: subtract 1pt from the current player's score
+  end
+end
+
+if current_table.sets?
+  puts "Sets remaining: #{current_table.sets_of_ids.inspect}"
+else
+  puts 'No sets remaining!'
+  if current_deck.card_count >= 3
+    current_deck, current_table = current_deck.deal(3, current_table)
+  end
+end
