@@ -8,10 +8,7 @@ rescue LoadError
   require_relative '../lib/set_game'
 end
 
-# FIXME: utilities to:
-# accept a board config and respond with the sets, number of sets, or existence (t/f) of sets
-# evaluate a move
-# render a board config - ascii, emoji, ???
+# FIXME: render a board config - ascii, emoji, ???
 
 
 require 'optparse'
