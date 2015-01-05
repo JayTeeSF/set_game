@@ -1,7 +1,7 @@
 require_relative '../../../lib/set_game/card'
 
 describe SetGame::Card do
-  let(:card) { SetGame::Card.new(:color, :number, :shading, :shape) }
+  let(:card) { SetGame::Card.new(:color, 1, :shading, :shape) }
 
   context 'creation' do
     let(:number_of_attributes) { [:shading, :number, :color, :shape].count }
@@ -30,7 +30,7 @@ describe SetGame::Card do
   context 'class conversions' do
     it 'produces a hash with color, number, shading and shape' do
       expect(card.to_h).to eq({
-        color: :color, number: :number, shading: :shading, shape: :shape
+        color: :color, number: 1, shading: :shading, shape: :shape
       })
     end
 
