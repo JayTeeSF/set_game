@@ -15,6 +15,7 @@ end
 
 
 require 'optparse'
+require 'json'
 
 options = {}
 opt_parser = OptionParser.new do |opts|
@@ -22,7 +23,6 @@ opt_parser = OptionParser.new do |opts|
 
   opts.on( '-j [JSON_DECK]', '--json [JSON_DECK]', 'JSON deck') do |json_deck|
     fail("unknown json file: #{json_deck}") unless File.exist?(json_deck)
-    require 'json'
     options[:deck] = SetGame::Deck.from_attributes(
       JSON.parse(File.read(json_deck))
     )
@@ -45,9 +45,19 @@ puts "current_table-cards: #{current_table.to_h[:cards].count}; current_table-di
 require 'ap'
 ap current_table.to_h[:cards]
 
-print "Identify a set (e.g. 0,1,2) or 'pass':"
-card_list_or_pass = gets.chomp
-puts
+asking = true
+while asking
+  print "Identify a set (e.g. 0,1,2) or 'pass' or 'save':"
+  card_list_or_pass = gets.chomp
+  puts
+
+  if card_list_or_pass.downcase =~ /save/
+    puts 'echo this to a file, BE SURE the card attributes are alphabetical:'
+    puts current_table.to_h[:cards].to_json
+  else
+    asking = false
+  end
+end
 
 cards = current_table.cards_for(card_list_or_pass.split(/,\s*/).map(&:to_i))
 if card_list_or_pass.downcase =~ /pass/ || cards.empty?
