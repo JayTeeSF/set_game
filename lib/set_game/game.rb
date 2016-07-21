@@ -100,7 +100,7 @@ module SetGame
         }
         output << row.dup
       end
-      max_len = 56
+      max_len = 37
       puts "MAX_LEN: #{max_len}"
       puts
       puts
