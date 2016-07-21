@@ -3,7 +3,7 @@ require 'json'
 
 module SetGame
   class Card
-    Color   = [:red, :green, :purple]
+    Color   = [:red, :green, :blue] # :yellow, :default
     Number  = [1, 2, 3]
     Shading = [:blank, :shaded, :solid]
     Shape   = [:diamond, :peanut, :triangle]
