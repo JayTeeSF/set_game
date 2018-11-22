@@ -11,8 +11,12 @@ module SetGame
 
     def self.from_attributes(_card_attrs=[], _discard_attrs=[])
       new(
-        _card_attrs.map{|ca| Card.new(*ca.values) },
-        _discard_attrs.map{|da| Card.new(*da.values) }
+        _card_attrs.map { |ca|
+          Card.new(*Card.ordered_array_from(ca))
+      },
+        _discard_attrs.map { |da|
+        Card.new(*Card.ordered_array_from(da))
+      }
       )
     end
 

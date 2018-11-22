@@ -31,6 +31,15 @@ module SetGame
     end
 
     # Enumerable...
+    def self.ordered_array_from(hash={})
+      [
+        (hash[:color] || hash["color"]).to_s.to_sym,
+        (hash[:number] || hash["number"]).to_i,
+        (hash[:shading] || hash["shading"]).to_s.to_sym,
+        (hash[:shape] || hash["shape"]).to_s.to_sym,
+      ]
+    end
+
     attr_reader :color, :number, :shading, :shape
     def initialize(color, number, shading, shape)
       # TODO: validate attributes
